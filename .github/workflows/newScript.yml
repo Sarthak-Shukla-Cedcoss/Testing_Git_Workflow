@@ -5,9 +5,6 @@ jobs:
   Check-Branch-name:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: echo ${GITHUB_REF#refs/heads/}
-    steps:
       - uses: tj-actions/branch-names@v6
       - run: |
           echo "Running on default: ${{ steps.branch-name.outputs.current_branch }}"
