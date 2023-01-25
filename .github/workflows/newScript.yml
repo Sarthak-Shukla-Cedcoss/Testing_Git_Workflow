@@ -7,11 +7,13 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo ${GITHUB_REF#refs/heads/}
-  Validate-Branch:
-    runs-on: ubantu-latest
-    steps:
-      - uses: tj-actions/branch-names@v6
-      - name: Running on the default branch.
-        if: steps.branch-name.outputs.is_default == 'true'
-        run: |
+      - run: |
           echo "Running on default: ${{ steps.branch-name.outputs.current_branch }}"
+  # Validate-Branch:
+  #   runs-on: ubantu-latest
+  #   steps:
+  #     - uses: tj-actions/branch-names@v6
+  #     - name: Running on the default branch.
+  #       if: steps.branch-name.outputs.is_default == 'true'
+  #       run: |
+  #         echo "Running on default: ${{ steps.branch-name.outputs.current_branch }}"
