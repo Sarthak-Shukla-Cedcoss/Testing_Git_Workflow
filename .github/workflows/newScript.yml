@@ -10,7 +10,8 @@ jobs:
   Validate-Branch:
     runs-on: ubantu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Branch validate
-        if: github.event.ref
-        run: echo Hello
+      - uses: tj-actions/branch-names@v6
+      - name: Running on the default branch.
+        if: steps.branch-name.outputs.is_default == 'true'
+        run: |
+          echo "Running on default: ${{ steps.branch-name.outputs.current_branch }}"
