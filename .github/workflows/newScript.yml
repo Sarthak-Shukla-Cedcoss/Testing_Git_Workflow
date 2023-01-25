@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Branch Check
-        if: ${GITHUB_REF##*/ === main}
+        if: ${{GITHUB_REF##*/ === main}}
         run: echo ru
       # - run:
       # echo ${GITHUB_REF##*/}
