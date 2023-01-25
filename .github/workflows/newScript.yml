@@ -12,5 +12,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Branch validate
-        if: ${GITHUB_REF#refs/heads/}
+        if: github.event.ref
         run: echo Hello
